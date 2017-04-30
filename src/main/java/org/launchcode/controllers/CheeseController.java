@@ -67,7 +67,7 @@ public class CheeseController {
     public String processRemoveCheeseForm(@RequestParam int[] cheeseIds) {
 
         for (int cheeseId : cheeseIds) {
-            cheeseDao.delete(cheeseId);
+            cheeseDao.delete(cheeseDao.findOne(cheeseId));
         }
 
         return "redirect:";
