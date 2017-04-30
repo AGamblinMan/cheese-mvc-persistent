@@ -28,21 +28,21 @@ public class CategoryController {
     public String index(Model model){
         model.addAttribute("title", "Categories");
         model.addAttribute("categories", categoryDao.findAll());
-        return "/category/index";
+        return "category/index";
     }
 
     @RequestMapping(value= "add", method = RequestMethod.GET)
     public String displayAddForm(Model model){
         model.addAttribute(new Category());
         model.addAttribute("title", "Add Category");
-        return "/category/add";
+        return "category/add";
     }
     @RequestMapping(value="add", method= RequestMethod.POST)
     public String processAddForm(Model model, @ModelAttribute @Valid Category newCategory, Errors errors){
 
         if (errors.hasErrors()){
             model.addAttribute("title", "Add Category");
-            return "/category/add";
+            return "category/add";
         }
 
         categoryDao.save(newCategory);
