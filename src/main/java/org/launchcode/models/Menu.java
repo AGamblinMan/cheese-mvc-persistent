@@ -56,4 +56,6 @@ public class Menu {
     public void addItem(Cheese item){
         cheeses.add(item);
     }
+
+    public void removeItem(Cheese item) {cheeses.remove(item);}
 }
